@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusTech Solutions | Consultoría de Software Empresarial</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --text: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text);
+        }
+        
+        .hero-image {
+            max-width: 800px;
+            margin: 50px auto 0;
+            border-radius: 10px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        /* Services */
+        .services {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h3 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            background-color: var(--light);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .service-icon img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .service-card h4 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Clients */
+        .clients {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .client-logos img {
+            height: 40px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .client-logos img:hover {
+            opacity: 1;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h5 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .cta-button.large {
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="logo.svg" alt="NexusTech Logo">
+                    <h1>NexusTech</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#casos">Casos de Éxito</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contacto" class="cta-button" style="color: #FFF;">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Transformamos tu visión en software de clase mundial</h2>
+            <p>Soluciones tecnológicas personalizadas que impulsan el crecimiento de tu negocio mediante innovación y experiencia técnica.</p>
+            <a href="#contacto" class="cta-button">Consulta Gratis</a>
+            
+            <div class="hero-image">
+                <img src="redd-francisco-5U_28ojjgms-unsplash.jpg" alt="Equipo de desarrollo trabajando">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h3>Nuestros Servicios de Consultoría</h3>
+                <p>Ofrecemos soluciones integrales adaptadas a las necesidades específicas de tu organización</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://via.placeholder.com/30x30/2563eb/ffffff?text=DEV" alt="Desarrollo Custom">
+                    </div>
+                    <h4>Desarrollo a Medida</h4>
+                    <p>Software empresarial diseñado específicamente para tus procesos y necesidades operativas.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://via.placeholder.com/30x30/2563eb/ffffff?text=CLD" alt="Cloud Solutions">
+                    </div>
+                    <h4>Soluciones en la Nube</h4>
+                    <p>Migración, implementación y optimización de infraestructura cloud para mayor escalabilidad.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://via.placeholder.com/30x30/2563eb/ffffff?text=IA" alt="Inteligencia Artificial">
+                    </div>
+                    <h4>Inteligencia Artificial</h4>
+                    <p>Implementamos modelos de ML y AI para automatizar procesos y extraer insights de tus datos.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://via.placeholder.com/30x30/2563eb/ffffff?text=UIX" alt="Experiencia de Usuario">
+                    </div>
+                    <h4>Diseño UX/UI</h4>
+                    <p>Interfaces intuitivas y atractivas que mejoran la experiencia del usuario final.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://via.placeholder.com/30x30/2563eb/ffffff?text=CIB" alt="Ciberseguridad">
+                    </div>
+                    <h4>Ciberseguridad</h4>
+                    <p>Protección de tus sistemas y datos con las últimas tecnologías de seguridad informática.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://via.placeholder.com/30x30/2563eb/ffffff?text=OPT" alt="Optimización">
+                    </div>
+                    <h4>Optimización de Sistemas</h4>
+                    <p>Mejoramos el rendimiento de tus aplicaciones existentes para mayor eficiencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="clients">
+        <div class="container">
+            <div class="section-title">
+                <h3>Confían en Nosotros</h3>
+                <p>Hemos colaborado con empresas líderes en diversos sectores</p>
+            </div>
+            
+            <div class="client-logos">
+                <img src="https://via.placeholder.com/150x60/ffffff/2563eb?text=Empresa+1" alt="Logo Empresa 1">
+                <img src="https://via.placeholder.com/150x60/ffffff/2563eb?text=Empresa+2" alt="Logo Empresa 2">
+                <img src="https://via.placeholder.com/150x60/ffffff/2563eb?text=Empresa+3" alt="Logo Empresa 3">
+                <img src="https://via.placeholder.com/150x60/ffffff/2563eb?text=Empresa+4" alt="Logo Empresa 4">
+                <img src="https://via.placeholder.com/150x60/ffffff/2563eb?text=Empresa+5" alt="Logo Empresa 5">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h3>Lo que dicen nuestros clientes</h3>
+                <p>Testimonios de empresas que han transformado sus operaciones con nuestras soluciones</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"NexusTech implementó un sistema ERP que ha optimizado nuestros procesos logísticos en un 40%. El equipo demostró un profundo conocimiento técnico y gran capacidad para entender nuestras necesidades específicas."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/50x50/2563eb/ffffff?text=JM" alt="Juan Martínez">
+                        <div class="author-info">
+                            <h5>Juan Martínez</h5>
+                            <p>Director de TI, RetailCorp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"La aplicación móvil desarrollada por NexusTech ha mejorado significativamente la experiencia de nuestros clientes. Han sido socios estratégicos desde el diseño inicial hasta el lanzamiento y soporte continuo."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/50x50/2563eb/ffffff?text=AS" alt="Ana Sánchez">
+                        <div class="author-info">
+                            <h5>Ana Sánchez</h5>
+                            <p>Gerente de Producto, FinTech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Gracias a la solución de análisis de datos implementada, ahora podemos tomar decisiones basadas en información en tiempo real. El equipo de NexusTech superó nuestras expectativas en cada fase del proyecto."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/50x50/2563eb/ffffff?text=CR" alt="Carlos Rodríguez">
+                        <div class="author-info">
+                            <h5>Carlos Rodríguez</h5>
+                            <p>CEO, DataInsights</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contacto">
+        <div class="container">
+            <h3>¿Listo para transformar tu negocio con tecnología?</h3>
+            <p>Agenda una consultoría gratuita con nuestros expertos y descubre cómo podemos ayudarte a alcanzar tus objetivos tecnológicos.</p>
+            <a href="#contacto" class="cta-button large">Contactar a un Consultor</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="logo">
+                        <img src="https://via.placeholder.com/40x40/ffffff/2563eb?text=NT" alt="NexusTech Logo">
+                        <h1>NexusTech</h1>
+                    </div>
+                    <p style="margin-top: 20px; color: #94a3b8;">Innovación tecnológica para el crecimiento empresarial.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Desarrollo a Medida</a></li>
+                        <li><a href="#">Consultoría Cloud</a></li>
+                        <li><a href="#">Inteligencia Artificial</a></li>
+                        <li><a href="#">Ciberseguridad</a></li>
+                        <li><a href="#">Optimización</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Equipo</a></li>
+                        <li><a href="#">Casos de Éxito</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Carreras</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="#">info@nexustech.com</a></li>
+                        <li><a href="#">+1 (555) 123-4567</a></li>
+                        <li><a href="#">Av. Tecnológica 1234</a></li>
+                        <li><a href="#">Ciudad Digital</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 NexusTech Solutions. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
